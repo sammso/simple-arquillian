@@ -1,6 +1,15 @@
-CATALINA_OPTS="$CATALINA_OPTS -Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true  -Dorg.apache.catalina.loader.WebappClassLoader.ENABLE_CLEAR_REFERENCES=false -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
+CATALINA_OPTS="$CATALINA_OPTS -Dfile.encoding=UTF8"
+CATALINA_OPTS="$CATALINA_OPTS -Djava.net.preferIPv4Stack=true"
+CATALINA_OPTS="$CATALINA_OPTS -Dorg.apache.catalina.loader.WebappClassLoader.ENABLE_CLEAR_REFERENCES=false"
+CATALINA_OPTS="$CATALINA_OPTS -Duser.timezone=GMT"
+CATALINA_OPTS="$CATALINA_OPTS -Xmx2048m"
 
-JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=8099 -Dcom.sun.management.jmxremote.ssl=false"
+
+JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false"
+JMX_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.authenticate=false"
+JMX_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.port=8099"
+JMX_OPTS="$CATALINA_OPTS -Dcom.sun.management.jmxremote.ssl=false"
+
 
 CATALINA_OPTS="${CATALINA_OPTS} ${JMX_OPTS}"
 

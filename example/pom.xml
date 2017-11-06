@@ -4,7 +4,7 @@
 <parent>
 	<groupId>com.sohlman.liferay.arquillian</groupId>
 	<artifactId>com.sohlman.liferay.arquillian</artifactId>
-	<version>1.0.8</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<relativePath>../pom.xml</relativePath>
 </parent>
 
@@ -17,6 +17,9 @@
 		<arquillian.liferay.bundle>${project.basedir}/../arquillian-liferay-bundle</arquillian.liferay.bundle>
 		<liferay.home>${arquillian.liferay.bundle}/liferay-ce-portal-7.0-ga3</liferay.home>
 		<liferay.server>${liferay.home}/tomcat-8.0.32</liferay.server>
+		<!-- 
+		https://downloads.sourceforge.net/project/lportal/Liferay%20Portal/7.0.4%20GA5/liferay-ce-portal-tomcat-7.0-ga5-20171018150113838.zip?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Flportal%2Ffiles%2FLiferay%2520Portal%2F7.0.4%2520GA5%2F&ts=1509799682&use_mirror=kent 
+		-->
 		<url.liferay><![CDATA[http://downloads.sourceforge.net/project/lportal/Liferay%20Portal/7.0.2%20GA3/liferay-ce-portal-tomcat-7.0-ga3-20160804222206210.zip]]></url.liferay>
 		<browser>phantomjs</browser>
 	</properties>
@@ -198,7 +201,7 @@
 								<phase>test-compile</phase>
 								<configuration>
 									<target>
-										<sleep seconds="100" />
+										<sleep seconds="250" />
 									</target>
 								</configuration>
 								<goals>
@@ -213,6 +216,24 @@
 	</profiles>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.sohlman.liferay.arquillian</groupId>
+			<artifactId>com.sohlman.liferay.arquillian.api</artifactId>
+			<version>${project.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sohlman.liferay.arquillian</groupId>
+			<artifactId>com.sohlman.liferay.arquillian.service</artifactId>
+			<version>${project.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>biz.aQute.bnd</groupId>
+			<artifactId>biz.aQute.remote.api</artifactId>
+			<version>3.2.0</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.kernel</artifactId>
@@ -270,13 +291,13 @@
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>org.osgi.core</artifactId>
-			<version>5.0.0</version>
+			<version>6.0.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.compendium</artifactId>
-			<version>5.0.0</version>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+			<version>1.3.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
